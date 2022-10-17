@@ -5,13 +5,13 @@ import {
   Box,
   Button,
   Center,
-    Link,
+  Link,
   Container,
   Divider,
   Flex,
   Heading,
   HStack,
-  Spacer, Text, VStack,
+  Spacer, Text, VStack, useMediaQuery,
 } from "@chakra-ui/react";
 import Header from "../components/Header";
 import EnterLotteryButton from "../components/EnterLotteryButton";
@@ -23,7 +23,9 @@ import NextLink from "next/link";
 import {FaGithub} from "react-icons/fa";
 
 
+
 export default function Home() {
+  const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
   return (
     <div className={"main"}>
       <Head>
@@ -32,20 +34,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+         <Header />
 
-        <Header />
 
-          <Center> <Box position={"relative"} zIndex={"2"} >
-            <Welcome />
+          <Center>
+            <Box position={"relative"} zIndex={ isSmallerThan721 ? "2" : "3"}> <Welcome /> </Box>
 
-          </Box></Center>
+        </Center>
           <VStack justifyContent={"space-evenly"} spacing={"7vh"}>
             <Box> </Box>
             <EnterLotteryButton />
             <FundLinkButton />
             <Info />
             <FinishLottery />
-            <Box height={"20vh"}> </Box>
+            <Box height={isSmallerThan721 ? "10vh" : "20vh"}> </Box>
 
 
 

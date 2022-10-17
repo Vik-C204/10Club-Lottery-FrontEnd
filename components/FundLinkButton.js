@@ -11,7 +11,7 @@ import {
     FormErrorMessage,
     FormLabel,
     Heading, HStack,
-    Spacer, Text
+    Spacer, Text, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
@@ -22,6 +22,8 @@ import Moralis from "moralis-v1";
 export default function FundLinkButton() {
 
     const { isWeb3Enabled } = useMoralis()
+
+    const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
     const [subBalance, setSubBalance] = useState("0")
     const [linkRate, setLinkRate] = useState("0")
@@ -117,13 +119,30 @@ export default function FundLinkButton() {
     return (
         <Flex direction={"column"} position={"relative"} zIndex={"1"}
               bg={"white"} padding={"1vh"} pb={"5vh"} mb={"3vh"} maxW={"100%"}>
-            <Center mt={"9vh"} mb={"3vh"}> <Heading size={"3xl"}  bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Fund with LINK  </Heading> </Center>
+            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"3vh"}> <Heading size={"3xl"}  bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Fund with LINK  </Heading> </Center>
 
             <Center mb={"2vh"}>
+                { isSmallerThan721 ?
+
+                    <VStack> <Heading mr={"2vh"} color={"black"} size={"lg"}> {"Balance of LINK:" + " "}</Heading> <Heading mr={"3vh"} bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {subBalance} </Heading>
+                        <Heading ml={"3vh"} mr={"2vh"} color={"black"} size={"lg"}> Current LINK/USD: </Heading> <Heading  bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> 0.013454355000000000 </Heading>
+                    </VStack>
+
+                    :
                 <Flex> <Heading mr={"2vh"} color={"black"} size={"lg"}> {"Balance of LINK:" + " "}</Heading> <Heading mr={"3vh"} bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {subBalance} </Heading>
                     <Heading ml={"3vh"} mr={"2vh"} color={"black"} size={"lg"}> Current LINK/USD: </Heading> <Heading  bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> 0.013454355000000000 </Heading>
-                </Flex>
+                </Flex> }
             </Center>
+
+            {isSmallerThan721 ?
+
+                <Center><Box>  <Text fontSize={"lg"}>
+                    Make sure to approve both transactions, the initial one, sending LINK to this lottery and the final one that will appear within a minute
+                    of approving the first, sending LINK from this lottery to ChainLINK VRF to get a truly random number.
+                </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box>
+                </Box> </Center>
+
+                : <>
             <Center><Box>  <Text fontSize={"lg"}>
                     Make sure to approve both transactions, the initial one, sending LINK to this lottery and the final one that will appear within a minute
             </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box>
@@ -132,7 +151,7 @@ export default function FundLinkButton() {
             <Center><Box>
                 <Text fontSize={"lg"}>
                     of approving the first, sending LINK from this lottery to ChainLINK VRF to get a truly random number.
-                </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box> </Box> </Center>
+                </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box> </Box> </Center>  </>}
 
             <Center mt={"8vh"} > <Box minWidth={"50%"}>
             <Formik
@@ -140,7 +159,7 @@ export default function FundLinkButton() {
                 onSubmit={ async (values) => {
                     await FundLink({ params: {
                             amount: Moralis.Units.Token(values.fee, 18),
-                            receiver: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+                            receiver: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
                             type: "erc20",
                             contractAddress: "0x326C977E6efc84E512bB9C30f76E30c160eD06FB",
 
@@ -148,7 +167,7 @@ export default function FundLinkButton() {
                         await tx.wait(1)
                         await LinkToVRF({ params: {
                                 abi: abi,
-                                contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+                                contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
                                 functionName: "linkToVRF",
                                 params: {amount: Moralis.Units.Token(values.fee, 18)},
 

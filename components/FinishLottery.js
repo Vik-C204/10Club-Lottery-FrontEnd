@@ -12,7 +12,7 @@ import {
     FormLabel,
     Heading,
     HStack,
-    Spacer, Text
+    Spacer, Text, useMediaQuery
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
@@ -22,6 +22,7 @@ import {useNotification} from "web3uikit";
 export default function FinishLottery() {
 
     const { isWeb3Enabled } = useMoralis()
+    const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
     useEffect(() => {
         if(isWeb3Enabled){
@@ -65,8 +66,18 @@ export default function FinishLottery() {
     return (
         <Flex direction={"column"} position={"relative"} zIndex={"1"}
               bg={"white"} padding={"1vh"} pb={"5vh"} mb={"3vh"} maxW={"100%"}>
-            <Center mt={"4vh"} mb={"3vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Request a Winner  </Heading> </Center>
+            <Center mt={isSmallerThan721 ? "3vh" : "15vh"} mb={"3vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Request a Winner  </Heading> </Center>
+            {isSmallerThan721 ?
 
+                <Center><Box>  <Text fontSize={"lg"}>
+                    This costs around 0.28 LINK so make sure the balance is big enough. In cases where the gas prices are high and LINK cost will increase,
+                    the request for the winner will be pending, waiting for balance to get big enough and getting cancelled after 24 hours
+                    You can either wait for gas prices to go down or top up with LINK in small increments and seeing if the transaction goes through
+
+                </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
+                </Box> </Center>
+
+                : <>
             <Center><Box>  <Text fontSize={"lg"}>
                 This costs around 0.28 LINK so make sure the balance is big enough. In cases where the gas prices are high and LINK cost will increase,
             </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
@@ -80,14 +91,14 @@ export default function FinishLottery() {
             <Center><Box>
                 <Text fontSize={"lg"}>
                     You can either wait for gas prices to go down or top up with LINK in small increments and seeing if the transaction goes through
-                </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box> </Box> </Center>
+                </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box> </Box> </Center> </> }
             <Center mt={"6vh"} > <Box minWidth={"50%"}>
             <Formik
                 initialValues={{ fee: '' }}
                 onSubmit={ async (values) => {
                     await requestWinner({ params: {
                             abi: abi,
-                            contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+                            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
                             functionName: "requestRandomWinner",
                             params: {},
 

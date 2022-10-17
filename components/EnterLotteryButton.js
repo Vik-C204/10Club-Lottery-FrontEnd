@@ -11,7 +11,7 @@ import {
     FormErrorMessage,
     FormLabel, Heading,
     Spacer,
-    Text
+    Text, useMediaQuery
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
@@ -23,6 +23,7 @@ import ticket from "../public/output-onlinepngtools (2).png"
 export default function EnterLotteryButton() {
 
     const { isWeb3Enabled } = useMoralis()
+    const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
     useEffect(() => {
         if(isWeb3Enabled){
@@ -66,9 +67,9 @@ export default function EnterLotteryButton() {
         return (
             <Flex direction={"column"} position={"relative"} zIndex={"1"}
                  bg={"white"} padding={"1vh"} pb={"4vh"} maxW={"100%"}>
-                <Center mt={"13vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading> </Center>
+                <Center mt={isSmallerThan721 ? "8vh" : "15vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading> </Center>
              <Center> <Text fontSize={"lg"}>
-                 Enter the lottery by providing a minimum entrance fee of 0.01 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go. Good Luck !!!
+                 Enter the lottery by providing a minimum entrance fee of 0.01 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go.
                   </Text>  </Center>
                 <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
 
@@ -78,7 +79,7 @@ export default function EnterLotteryButton() {
                 onSubmit={ async (values) => {
                     await EnterLottery({ params: {
                             abi: abi,
-                            contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+                            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
                             functionName: "enterLottery",
                             params: {},
                             msgValue: ethers.utils.parseEther(values.fee)

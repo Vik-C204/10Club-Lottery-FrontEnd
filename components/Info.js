@@ -12,7 +12,7 @@ import {
     FormErrorMessage,
     FormLabel,
     Heading, HStack, ListItem,
-    Spacer, Text, UnorderedList
+    Spacer, Text, UnorderedList, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
@@ -23,6 +23,7 @@ import Moralis from "moralis-v1";
 export default function Info() {
 
     const { isWeb3Enabled } = useMoralis()
+    const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
     const [players, setPlayers] = useState([])
     const [balance, setBalance] = useState("0")
@@ -56,7 +57,7 @@ export default function Info() {
     const {runContractFunction: getPlayers} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
             functionName: "getPlayers",
             params: {},
         });
@@ -64,7 +65,7 @@ export default function Info() {
     const {runContractFunction: getBalance} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
             functionName: "getBalance",
             params: {},
         });
@@ -72,7 +73,7 @@ export default function Info() {
     const {runContractFunction: getRecentWinner} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
             functionName: "getRecentWinner",
             params: {},
         });
@@ -103,20 +104,29 @@ export default function Info() {
     return (
         <Flex direction={"column"} position={"relative"} zIndex={"1"}
               bg={"white"} padding={"1vh"} pb={"5vh"} maxW={"100%"}>
-            <Center mt={"9vh"} mb={"3vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Check the Club State </Heading> </Center>
+            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"3vh"}> {isSmallerThan721 ?
+
+                <VStack>
+                    <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Check the  </Heading>
+                    <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}>  Club State </Heading>
+                </VStack>
+
+
+                :
+                <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Check the Club State </Heading>} </Center>
             <Center mb={"4vh"}>
-                <HStack> <Heading color={"#DCAB53"} size={"lg"}> Total ETH Pool: </Heading> <Heading color={"#7C82FF"} size={"lg"}> {balance} </Heading> </HStack>
+                <HStack> <Heading  size={"lg"}> Total ETH Pool: </Heading> <Heading bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {balance} </Heading> </HStack>
             </Center>
-            <Center> <Heading color={"#DCAB53"} size={"lg"}> Current members: </Heading> </Center>
+            <Center> <Heading color={"black"} size={"lg"}> Current members: </Heading> </Center>
             <Center mt={"2vh"} > <Box minWidth={"50%"}>
             <UnorderedList mt={"4vh"}>
                 {players.map( (player) => {
                     return (
-                        <ListItem color={"#DCAB53"} key={players.indexOf(player)}>
+                        <ListItem color={"red.500"} key={players.indexOf(player)}>
                             <Center><Box>
                                 <Text fontSize={"lg"} color={"black"}>
                                     {player}
-                                </Text> <Box width={"100%"} height={"2px"} bg={"#7C82FF"}> </Box> </Box> </Center>
+                                </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box> </Box> </Center>
 
                             <Center mt={"8vh"} > <Box minWidth={"50%"}>
 
@@ -129,9 +139,14 @@ export default function Info() {
             </UnorderedList>
             </Box>
             </Center>
-            <Center> <Heading color={"#DCAB53"} size={"lg"}> Latest Winner: </Heading> </Center>
-            <Center> <Heading color={"#7C82FF"} size={"lg"}> {winner} </Heading> </Center>
-            <Center> <GiPodiumWinner size={"20vh"} color={"#DCAB53"}/>  </Center>
+            <Center> <Heading bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> Latest Winner: </Heading> </Center>
+            <Center> <Heading bgGradient={'linear(to-r, #7C82FF,teal.400 )'} bgClip={"text"} size={"lg"}> {winner} </Heading> </Center>
+            <Center> <svg width="0" height="0">
+                <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                    <stop stopColor="yellow" offset="0%" />
+                    <stop stopColor="red" offset="100%" />
+                </linearGradient>
+            </svg> <GiPodiumWinner size={"20vh"} style={{ fill: "url(#blue-gradient)" }} /> </Center>
 
         </Flex>
     )
