@@ -9,7 +9,7 @@ export default function Welcome() {
     return ( <Center>
         <Box className={"welcome"} bgGradient={"linear(to-r, red.500, yellow.500)"} padding={"1.5vh"}
              borderRadius={"10"}
-             mt={ isSmallerThan721 ? 0 : "12vh"}
+             mt={ isSmallerThan721 ? 0 : "17vh"}
         >
             <Box  bg={"white"} padding={"2vh"}>
             <Heading size={"xl"} color={"black"}>

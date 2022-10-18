@@ -67,7 +67,7 @@ export default function Header() {
 
 
           :
-      <Box bgGradient={"linear(to-r, red.500, yellow.500)"}>
+      <Box bgGradient={'linear(to-r, #7C82FF,teal.400 )'} >
 
 
     <Flex
@@ -78,6 +78,8 @@ export default function Header() {
       position={"relative"}
       zIndex={"5"}
       pt={"2vh"}
+      mb={"5vh"}
+
     >
 
       <Heading ml={"10vh"} color={"white"} size={"4xl"}>
@@ -101,7 +103,8 @@ export default function Header() {
             <FaEthereum size={"50px"} color={"#7C82FF"} />
             <ConnectButton moralisAuth={false} colour />
             <FaEthereum size={"50px"} color={"#7C82FF"} />
-        </HStack> </Center>
+        </HStack>
+        </Center>
 
         </Box>
 

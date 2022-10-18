@@ -38,9 +38,9 @@ export default function FundLinkButton() {
         // })
         const sub = await getSub()
         const balance = sub[0]._hex.toString()
-        const link = await getPrice().toString()
+        const link = (await getPrice())._hex.toString()
 
-        setSubBalance(link)
+        setLinkRate(ethers.utils.formatUnits(link, 8))
         setSubBalance(ethers.utils.formatUnits(balance, "ether"))
 
     }
@@ -54,17 +54,17 @@ export default function FundLinkButton() {
     const {runContractFunction: getSub} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
             functionName: "getSub",
             params: {},
-        });
+        }, onError: { (error) => console.log(JSON.stringify(error))} );
 
 
     const {runContractFunction: getPrice} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "",
-            functionName: "",
+            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+            functionName: "getLatestPrice",
             params: {},
         });
 
@@ -94,7 +94,7 @@ export default function FundLinkButton() {
         await tx.wait(1)
         await LinkToVRF({ params: {
                 abi: abi,
-                contractAddress: "0x9CB7A11015AA6DD3E16E5e59EeE9D3eA4DF08D47",
+                contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
                 functionName: "linkToVRF",
                 params: {amount: Moralis.Units.Token(values.fee, 18)},
 
@@ -111,7 +111,7 @@ export default function FundLinkButton() {
         if (!value) {
             error = 'Min entrance fee is required'
         } else if (value < 0.01) {
-            error = "Please input at least 0.01 ETH"
+            error = "Please input at least 0.01 LINK "
         }
         return error
     }
@@ -125,12 +125,12 @@ export default function FundLinkButton() {
                 { isSmallerThan721 ?
 
                     <VStack> <Heading mr={"2vh"} color={"black"} size={"lg"}> {"Balance of LINK:" + " "}</Heading> <Heading mr={"3vh"} bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {subBalance} </Heading>
-                        <Heading ml={"3vh"} mr={"2vh"} color={"black"} size={"lg"}> Current LINK/USD: </Heading> <Heading  bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> 0.013454355000000000 </Heading>
+                        <Heading ml={"3vh"} mr={"2vh"} color={"black"} size={"lg"}> Current LINK/USD: </Heading> <Heading  bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {linkRate} </Heading>
                     </VStack>
 
                     :
                 <Flex> <Heading mr={"2vh"} color={"black"} size={"lg"}> {"Balance of LINK:" + " "}</Heading> <Heading mr={"3vh"} bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {subBalance} </Heading>
-                    <Heading ml={"3vh"} mr={"2vh"} color={"black"} size={"lg"}> Current LINK/USD: </Heading> <Heading  bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> 0.013454355000000000 </Heading>
+                    <Heading ml={"3vh"} mr={"2vh"} color={"black"} size={"lg"}> Current LINK/USD: </Heading> <Heading  bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {linkRate} </Heading>
                 </Flex> }
             </Center>
 
@@ -159,7 +159,7 @@ export default function FundLinkButton() {
                 onSubmit={ async (values) => {
                     await FundLink({ params: {
                             amount: Moralis.Units.Token(values.fee, 18),
-                            receiver: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+                            receiver: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
                             type: "erc20",
                             contractAddress: "0x326C977E6efc84E512bB9C30f76E30c160eD06FB",
 
@@ -167,7 +167,7 @@ export default function FundLinkButton() {
                         await tx.wait(1)
                         await LinkToVRF({ params: {
                                 abi: abi,
-                                contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+                                contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
                                 functionName: "linkToVRF",
                                 params: {amount: Moralis.Units.Token(values.fee, 18)},
 
@@ -189,7 +189,7 @@ export default function FundLinkButton() {
                             {({ field, form }) => (
                                 <FormControl isInvalid={form.errors.fee && form.touched.fee}>
                                     <FormErrorMessage>{form.errors.fee}</FormErrorMessage>
-                                    <Input {...field} placeholder='Your entrance fee in ETH' />
+                                    <Input {...field} placeholder='Amount of LINK you wish to fund the raffle with' />
                                 </FormControl>
                             )}
                         </Field>

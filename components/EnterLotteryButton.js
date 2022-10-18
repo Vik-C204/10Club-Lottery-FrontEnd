@@ -58,7 +58,7 @@ export default function EnterLotteryButton() {
             let error
             if (!value) {
                 error = 'Min entrance fee is required'
-            } else if (value < 0.01) {
+            } else if (value < 0.001) {
                 error = "Please input at least 0.01 ETH"
             }
             return error
@@ -79,7 +79,7 @@ export default function EnterLotteryButton() {
                 onSubmit={ async (values) => {
                     await EnterLottery({ params: {
                             abi: abi,
-                            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+                            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
                             functionName: "enterLottery",
                             params: {},
                             msgValue: ethers.utils.parseEther(values.fee)

@@ -57,7 +57,7 @@ export default function Info() {
     const {runContractFunction: getPlayers} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
             functionName: "getPlayers",
             params: {},
         });
@@ -65,7 +65,7 @@ export default function Info() {
     const {runContractFunction: getBalance} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
             functionName: "getBalance",
             params: {},
         });
@@ -73,7 +73,7 @@ export default function Info() {
     const {runContractFunction: getRecentWinner} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
             functionName: "getRecentWinner",
             params: {},
         });

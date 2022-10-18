@@ -98,7 +98,7 @@ export default function FinishLottery() {
                 onSubmit={ async (values) => {
                     await requestWinner({ params: {
                             abi: abi,
-                            contractAddress: "0x438e726Ae87D228bF3970E252B81E82D4512C194",
+                            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
                             functionName: "requestRandomWinner",
                             params: {},
 
@@ -110,14 +110,6 @@ export default function FinishLottery() {
             >
                 {( { isSubmitting}) => (
                     <Form>
-                        <Field name='fee' validate={validateName}>
-                            {({ field, form }) => (
-                                <FormControl isInvalid={form.errors.fee && form.touched.fee} bg={"white"} >
-                                    <FormErrorMessage bg={"white"}>{form.errors.fee}</FormErrorMessage>
-                                    <Input {...field} placeholder='Your entrance fee in ETH'/>
-                                </FormControl>
-                            )}
-                        </Field>
                         <Button
                             mt={"2vh"}
                             _hover={{
