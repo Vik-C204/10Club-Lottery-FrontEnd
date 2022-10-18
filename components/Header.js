@@ -26,6 +26,7 @@ export default function Header() {
               >
 
                   <Heading color={"white"} size={"4xl"}>
+                      {/* eslint-disable-next-line react/no-unescaped-entities */}
                       10'sClub
                   </Heading>
                   <Heading size={"4xl"} color={"white"} >
@@ -83,6 +84,7 @@ export default function Header() {
     >
 
       <Heading ml={"10vh"} color={"white"} size={"4xl"}>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
         10'sClub
       </Heading>
       <Heading size={"4xl"} color={"white"} ml={"2vh"}>
