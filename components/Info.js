@@ -37,13 +37,16 @@ export default function Info() {
         //     functionName: "getEntranceFee",
         //     ...options,
         // })
-        const playersL = await getPlayers()
-        const balanceL = (await getBalance())._hex.toString()
-        const winnerL = (await getRecentWinner()).toString()
+        const playersFunction = await getPlayers()
+        const playersL = playersFunction ? playersFunction : []
+        const balanceFunction = await getBalance()
+        const balanceL = balanceFunction ? balanceFunction._hex.toString() : "Wallet not connected to Ethereum"
+        const winnerFunction = await getRecentWinner()
+        const winnerL = winnerFunction ? winnerFunction.toString() : "Wallet not connected to Ethereum"
 
 
         setPlayers(playersL)
-        setBalance(ethers.utils.formatUnits(balanceL, "ether"))
+        setBalance( balanceL !== "Wallet not connected to Ethereum"? ethers.utils.formatUnits(balanceL, "ether") : "Wallet not connected to Ethereum")
         setWinner(winnerL)
 
     }

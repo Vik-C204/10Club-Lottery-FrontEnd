@@ -37,11 +37,14 @@ export default function FundLinkButton() {
         //     ...options,
         // })
         const sub = await getSub()
-        const balance = sub[0]._hex.toString()
-        const link = (await getPrice())._hex.toString()
+        const balance = sub ? sub[0]._hex.toString() : "Wallet not connected to Ethereum"
+        const linkFunction = await getPrice()
+        const link = linkFunction ? linkFunction._hex.toString() : "Wallet not connected to Ethereum"
 
-        setLinkRate(ethers.utils.formatUnits(link, 8))
-        setSubBalance(ethers.utils.formatUnits(balance, "ether"))
+
+
+        setLinkRate( link !== "Wallet not connected to Ethereum" ? ethers.utils.formatUnits(link, 8) : "Wallet not connected to Ethereum")
+        setSubBalance( balance !== "Wallet not connected to Ethereum" ? ethers.utils.formatUnits(balance, "ether") : "Wallet not connected to Ethereum")
 
     }
 
@@ -57,7 +60,7 @@ export default function FundLinkButton() {
             contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
             functionName: "getSub",
             params: {},
-        }, onError: { (error) => console.log(JSON.stringify(error))} );
+        });
 
 
     const {runContractFunction: getPrice} =
