@@ -19,7 +19,6 @@ import {useEffect} from "react";
 import  {ethers} from "ethers";
 import {useNotification} from "web3uikit";
 import Image from 'next/image'
-import ticket from "../public/output-onlinepngtools (2).png"
 export default function EnterLotteryButton() {
 
     const { isWeb3Enabled } = useMoralis()
