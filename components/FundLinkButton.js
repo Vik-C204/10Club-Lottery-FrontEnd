@@ -25,8 +25,8 @@ export default function FundLinkButton() {
 
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
-    const [subBalance, setSubBalance] = useState("0")
-    const [linkRate, setLinkRate] = useState("0")
+    const [subBalance, setSubBalance] = useState("Wallet not connected to Ethereum")
+    const [linkRate, setLinkRate] = useState("Wallet not connected to Ethereum")
 
 
     async function updateUIValues() {
@@ -139,7 +139,7 @@ export default function FundLinkButton() {
 
             {isSmallerThan721 ?
 
-                <Center><Box>  <Text fontSize={"lg"}>
+                <Center><Box>  <Text align={"center"} fontSize={"lg"}>
                     Make sure to approve both transactions, the initial one, sending LINK to this lottery and the final one that will appear within a minute
                     of approving the first, sending LINK from this lottery to ChainLINK VRF to get a truly random number.
                 </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box>

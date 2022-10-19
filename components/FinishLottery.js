@@ -69,7 +69,7 @@ export default function FinishLottery() {
             <Center mt={isSmallerThan721 ? "3vh" : "15vh"} mb={"3vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Request a Winner  </Heading> </Center>
             {isSmallerThan721 ?
 
-                <Center><Box>  <Text fontSize={"lg"}>
+                <Center><Box>  <Text align={"center"} fontSize={"lg"}>
                     This costs around 0.28 LINK so make sure the balance is big enough. In cases where the gas prices are high and LINK cost will increase,
                     the request for the winner will be pending, waiting for balance to get big enough and getting cancelled after 24 hours
                     You can either wait for gas prices to go down or top up with LINK in small increments and seeing if the transaction goes through

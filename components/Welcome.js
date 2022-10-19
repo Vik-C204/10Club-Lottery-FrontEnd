@@ -16,7 +16,8 @@ export default function Welcome() {
             <Box  bg={"white"} padding={"2vh"}>
             <Heading size={"xl"} color={"black"}>
                 <Center> { isSmallerThan721 ? <VStack>  <Text> Welcome to </Text> <Flex>
-                        <Text mr={"1vh"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} > 10&ampsClub Raffle </Text>
+                        {/* eslint-disable-next-line react/no-unescaped-entities */}
+                        <Text mr={"1vh"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} > 10'Club Raffle </Text>
                     </Flex> </VStack>
 
 
@@ -30,7 +31,7 @@ export default function Welcome() {
             <Box width={"100%"} height={"2px"}  bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box>
                 {isSmallerThan721 ?
 
-                    <Text fontSize={"lg"}> This DApp simulates a raffle-type activity where up-to 10 players can send ETH, thereby entering the Club,
+                    <Text align={"center"} fontSize={"lg"}> This DApp simulates a raffle-type activity where up-to 10 players can send ETH, thereby entering the Club,
                         into a pool and once any of the players finishes the lottery, sending a bit of LINK as payment in order to to get
                         a truly random number through ChainLink VRF, a winner is chosen and gets sent 50% of the ETH in the pool while
                         the rest of the players receive the other 50% split equally between them. As the name and the maximum number of

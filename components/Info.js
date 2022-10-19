@@ -26,8 +26,8 @@ export default function Info() {
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
     const [players, setPlayers] = useState([])
-    const [balance, setBalance] = useState("0")
-    const [winner, setWinner] = useState("null")
+    const [balance, setBalance] = useState("Wallet not connected to Ethereum")
+    const [winner, setWinner] = useState("Wallet not connected to Ethereum")
 
 
     async function updateUIValues() {
@@ -117,9 +117,12 @@ export default function Info() {
 
                 :
                 <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Check the Club State </Heading>} </Center>
-            <Center mb={"4vh"}>
-                <HStack> <Heading  size={"lg"}> Total ETH Pool: </Heading> <Heading bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> {balance} </Heading> </HStack>
-            </Center>
+            {isSmallerThan721 ? <Center mb={"4vh"}>
+                    <VStack> <Heading  size={"lg"}> Total ETH Pool: </Heading> <Heading bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={isSmallerThan721 ? "md" :"lg"}> {balance} </Heading> </VStack>
+                </Center>
+                : <Center mb={"4vh"}>
+                <HStack> <Heading  size={"lg"}> Total ETH Pool: </Heading> <Heading bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={isSmallerThan721 ? "md" :"lg"}> {balance} </Heading> </HStack>
+            </Center> }
             <Center> <Heading color={"black"} size={"lg"}> Current members: </Heading> </Center>
             <Center mt={"2vh"} > <Box minWidth={"50%"}>
             <UnorderedList mt={"4vh"}>
@@ -143,7 +146,7 @@ export default function Info() {
             </Box>
             </Center>
             <Center> <Heading bgGradient={"linear(to-r, red.500, yellow.500)"} bgClip={"text"} size={"lg"}> Latest Winner: </Heading> </Center>
-            <Center> <Heading bgGradient={'linear(to-r, #7C82FF,teal.400 )'} bgClip={"text"} size={"lg"}> {winner} </Heading> </Center>
+            <Center> <Heading bgGradient={'linear(to-r, #7C82FF,teal.400 )'} bgClip={"text"} size={isSmallerThan721 ? "sm" : "lg"}> {winner} </Heading> </Center>
             <Center> <svg width="0" height="0">
                 <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
                     <stop stopColor="yellow" offset="0%" />

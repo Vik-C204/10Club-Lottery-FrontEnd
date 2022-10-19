@@ -11,7 +11,7 @@ import {
     FormErrorMessage,
     FormLabel, Heading,
     Spacer,
-    Text, useMediaQuery
+    Text, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
@@ -66,9 +66,9 @@ export default function EnterLotteryButton() {
         return (
             <Flex direction={"column"} position={"relative"} zIndex={"1"}
                  bg={"white"} padding={"1vh"} pb={"4vh"} maxW={"100%"}>
-                <Center mt={isSmallerThan721 ? "8vh" : "15vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading> </Center>
-             <Center> <Text fontSize={"lg"}>
-                 Enter the lottery by providing a minimum entrance fee of 0.01 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go.
+                <Center mt={isSmallerThan721 ? "8vh" : "15vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading>  </Center>
+             <Center> <Text align={"center"} fontSize={"lg"}>
+                 Enter the lottery by providing a minimum entrance fee of 0.01 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go
                   </Text>  </Center>
                 <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
 
