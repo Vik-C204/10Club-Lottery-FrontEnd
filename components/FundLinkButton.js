@@ -25,8 +25,8 @@ export default function FundLinkButton() {
 
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
-    const [subBalance, setSubBalance] = useState("Wallet not connected to Ethereum")
-    const [linkRate, setLinkRate] = useState("Wallet not connected to Ethereum")
+    const [subBalance, setSubBalance] = useState("Not connected to Ethereum")
+    const [linkRate, setLinkRate] = useState("Not connected to Ethereum")
 
 
     async function updateUIValues() {

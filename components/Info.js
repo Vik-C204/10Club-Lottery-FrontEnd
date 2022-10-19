@@ -26,8 +26,8 @@ export default function Info() {
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
     const [players, setPlayers] = useState([])
-    const [balance, setBalance] = useState("Wallet not connected to Ethereum")
-    const [winner, setWinner] = useState("Wallet not connected to Ethereum")
+    const [balance, setBalance] = useState("Not connected to Ethereum")
+    const [winner, setWinner] = useState("Not connected to Ethereum")
 
 
     async function updateUIValues() {

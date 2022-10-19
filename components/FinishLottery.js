@@ -12,7 +12,7 @@ import {
     FormLabel,
     Heading,
     HStack,
-    Spacer, Text, useMediaQuery
+    Spacer, Text, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
@@ -66,7 +66,13 @@ export default function FinishLottery() {
     return (
         <Flex direction={"column"} position={"relative"} zIndex={"1"}
               bg={"white"} padding={"1vh"} pb={"5vh"} mb={"3vh"} maxW={"100%"}>
-            <Center mt={isSmallerThan721 ? "3vh" : "15vh"} mb={"3vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Request a Winner  </Heading> </Center>
+            <Center mt={isSmallerThan721 ? "3vh" : "15vh"} mb={"3vh"}> {isSmallerThan721 ?
+
+                    <VStack> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> Request   </Heading>
+                        <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} > a   </Heading>
+                        <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Winner  </Heading></VStack> :
+
+                <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Request a Winner  </Heading>} </Center>
             {isSmallerThan721 ?
 
                 <Center><Box>  <Text align={"center"} fontSize={"lg"}>
