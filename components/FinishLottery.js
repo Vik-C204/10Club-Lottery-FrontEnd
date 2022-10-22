@@ -11,15 +11,19 @@ import {
     FormErrorMessage,
     FormLabel,
     Heading,
-    HStack,
+    HStack, ScaleFade,
     Spacer, Text, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import  {ethers} from "ethers";
 import {useNotification} from "web3uikit";
+import {useInViewport} from "react-in-viewport";
 export default function FinishLottery() {
+
+    const ref = useRef(null);
+    const { enterCount } = useInViewport(ref,{ rootMargin: "-20%"}, {disconnectOnLeave: false}, {})
 
     const { isWeb3Enabled } = useMoralis()
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
@@ -63,8 +67,8 @@ export default function FinishLottery() {
         return error
     }
 
-    return (
-        <Flex direction={"column"} position={"relative"} zIndex={"1"}
+    return (<ScaleFade whileHover={{scale: 1.1}} initialScale={0.001} in={ enterCount > 0} >
+        <Flex direction={"column"} position={"relative"} zIndex={"1"} ref={ref}
               bg={"white"} padding={"1vh"} pb={"5vh"} mb={"3vh"} maxW={"100%"}>
             <Center mt={isSmallerThan721 ? "3vh" : "15vh"} mb={"3vh"}> {isSmallerThan721 ?
 
@@ -134,6 +138,6 @@ export default function FinishLottery() {
             </Formik>
             </Box>
             </Center>
-        </Flex>
+        </Flex> </ScaleFade>
     )
 }

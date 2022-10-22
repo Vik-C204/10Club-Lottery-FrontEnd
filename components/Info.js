@@ -11,16 +11,20 @@ import {
     FormControl,
     FormErrorMessage,
     FormLabel,
-    Heading, HStack, ListItem,
+    Heading, HStack, ListItem, ScaleFade,
     Spacer, Text, UnorderedList, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import  {ethers} from "ethers";
 import {useNotification} from "web3uikit";
 import Moralis from "moralis-v1";
+import {useInViewport} from "react-in-viewport";
 export default function Info() {
+
+    const ref = useRef(null);
+    const { enterCount } = useInViewport(ref,{ rootMargin: "-20%"}, {disconnectOnLeave: false}, {})
 
     const { isWeb3Enabled } = useMoralis()
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
@@ -104,10 +108,10 @@ export default function Info() {
     }
 
 
-    return (
-        <Flex direction={"column"} position={"relative"} zIndex={"1"}
-              bg={"white"} padding={"1vh"} pb={"5vh"} maxW={"100%"}>
-            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"3vh"}> {isSmallerThan721 ?
+    return (<ScaleFade whileHover={{scale: 1.1}} initialScale={0.001} in={enterCount > 0} >
+        <Flex direction={"column"} position={"relative"} zIndex={"1"} ref={ref}
+              bg={"white"} padding={"1vh"} maxW={"100%"}>
+            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"5vh"} > {isSmallerThan721 ?
 
                 <VStack>
                     <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Check the  </Heading>
@@ -154,6 +158,6 @@ export default function Info() {
                 </linearGradient>
             </svg> <GiPodiumWinner size={"20vh"} style={{ fill: "url(#blue-gradient)" }} /> </Center>
 
-        </Flex>
+        </Flex> </ScaleFade>
     )
 }

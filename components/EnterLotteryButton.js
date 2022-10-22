@@ -9,17 +9,22 @@ import {
     Flex,
     FormControl,
     FormErrorMessage,
-    FormLabel, Heading,
+    FormLabel, Heading, ScaleFade,
     Spacer,
-    Text, useMediaQuery, VStack
+    Text, transition, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import  {ethers} from "ethers";
 import {useNotification} from "web3uikit";
 import Image from 'next/image'
+import {useInViewport} from "react-in-viewport";
+import {motion} from "framer-motion";
 export default function EnterLotteryButton() {
+
+    const ref = useRef(null);
+    const { enterCount } = useInViewport(ref,{ rootMargin: "-20%"}, {disconnectOnLeave: false}, {})
 
     const { isWeb3Enabled } = useMoralis()
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
@@ -63,10 +68,10 @@ export default function EnterLotteryButton() {
             return error
         }
 
-        return (
-            <Flex direction={"column"} position={"relative"} zIndex={"1"}
+        return ( <ScaleFade whileHover={{scale: 1.1}} initialScale={0.001} in={enterCount > 0} >
+            <Flex className={"fade"}  direction={"column"} position={"relative"} zIndex={"1"} ref={ref}
                  bg={"white"} padding={"1vh"} pb={"4vh"} maxW={"100%"}>
-                <Center mt={isSmallerThan721 ? "8vh" : "15vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading>  </Center>
+                <Center mt={isSmallerThan721 ? "8vh" : "10vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading>  </Center>
              <Center> <Text align={"center"} fontSize={"lg"}>
                  Enter the lottery by providing a minimum entrance fee of 0.01 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go
                   </Text>  </Center>
@@ -117,6 +122,6 @@ export default function EnterLotteryButton() {
             </Formik>
             </Box>
                 </Center>
-            </Flex>
+            </Flex> </ScaleFade>
         )
     }

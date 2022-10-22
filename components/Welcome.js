@@ -1,4 +1,17 @@
-import {Box, Center, Divider, Flex, Heading, HStack, Link, Spacer, Text, useMediaQuery, VStack} from "@chakra-ui/react";
+import {
+    Box,
+    Center,
+    Divider,
+    Flex,
+    Heading,
+    HStack,
+    Link,
+    ScaleFade,
+    Spacer,
+    Text,
+    useMediaQuery,
+    VStack
+} from "@chakra-ui/react";
 import Header from "./Header";
 import NextLink from "next/link";
 import {FaGithub} from "react-icons/fa";
@@ -8,7 +21,7 @@ export default function Welcome() {
 
     const [isSmallerThan721] = useMediaQuery('(max-width: 721px)')
 
-    return ( <Center>
+    return (<Center>
         <Box className={"welcome"} bgGradient={"linear(to-r, red.500, yellow.500)"} padding={"1.5vh"}
              borderRadius={"10"}
              mt={ isSmallerThan721 ? 0 : "17vh"}

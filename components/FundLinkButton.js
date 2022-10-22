@@ -10,16 +10,20 @@ import {
     FormControl,
     FormErrorMessage,
     FormLabel,
-    Heading, HStack,
+    Heading, HStack, ScaleFade,
     Spacer, Text, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import {Input} from "@chakra-ui/react";
 import abi from "../constants/abi.json"
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import  {ethers} from "ethers";
 import {useNotification} from "web3uikit";
 import Moralis from "moralis-v1";
+import {useInViewport} from "react-in-viewport";
 export default function FundLinkButton() {
+
+    const ref = useRef(null);
+    const { enterCount } = useInViewport(ref,{ rootMargin: "-20%"}, {disconnectOnLeave: false}, {})
 
     const { isWeb3Enabled } = useMoralis()
 
@@ -119,10 +123,10 @@ export default function FundLinkButton() {
         return error
     }
 
-    return (
-        <Flex direction={"column"} position={"relative"} zIndex={"1"}
+    return (<ScaleFade whileHover={{scale: 1.1}} initialScale={0.001} in={enterCount > 0} >
+        <Flex direction={"column"} position={"relative"} zIndex={"1"} ref={ref}
               bg={"white"} padding={"1vh"} pb={"5vh"} mb={"3vh"} maxW={"100%"}>
-            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"3vh"}> <Heading size={"3xl"}  bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Fund with LINK  </Heading> </Center>
+            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"5vh"}> <Heading size={"3xl"}  bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Fund with LINK  </Heading> </Center>
 
             <Center mb={"2vh"}>
                 { isSmallerThan721 ?
@@ -214,6 +218,6 @@ export default function FundLinkButton() {
             </Formik>
             </Box>
             </Center>
-        </Flex>
+        </Flex> </ScaleFade>
     )
 }
