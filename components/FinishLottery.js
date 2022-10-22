@@ -42,7 +42,7 @@ export default function FinishLottery() {
     const handleNewNotification = () => {
         dispatch({
             type: "info",
-            message: "Winner chosen successfully!",
+            message: "Winner requested successfully! May take a few minutes",
             title: "Transaction Notification",
             position: "topR",
             icon: "bell",
@@ -80,27 +80,32 @@ export default function FinishLottery() {
             {isSmallerThan721 ?
 
                 <Center><Box>  <Text align={"center"} fontSize={"lg"}>
-                    This costs around 0.28 LINK so make sure the balance is big enough. In cases where the gas prices are high and LINK cost will increase,
-                    the request for the winner will be pending, waiting for balance to get big enough and getting cancelled after 24 hours
-                    You can either wait for gas prices to go down or top up with LINK in small increments and seeing if the transaction goes through
+                    This costs around 1 LINK, however due to the nature of ChainLinkVRF limits, always make sure the balance is at least 12 LINK. In cases where the gas price is high and LINK cost will increase,
+                    there is a chance that the request for the winner will not go through and will be pending, waiting for the balance to get big enough and getting cancelled after 24 hours.
+                    You can either wait for gas price to go down or top up with LINK in small increments and seeing if the transaction goes through.
 
                 </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
                 </Box> </Center>
 
                 : <>
-            <Center><Box>  <Text fontSize={"lg"}>
-                This costs around 0.28 LINK so make sure the balance is big enough. In cases where the gas prices are high and LINK cost will increase,
-            </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
-            </Box> </Center>
+                        <Center><Box>  <Text fontSize={"lg"}>
+                            This costs around 0.5 - 2 LINK, however due to the nature of ChainLinkVRF limits, always make sure the balance is at least 12 LINK.
+                        </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
+                        </Box> </Center>
 
+                    <Center><Box>
+                        <Text fontSize={"lg"}>
+                            In cases where the gas price is high and LINK cost will increase, there is a chance that the request for the winner will not
+                        </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box> </Box> </Center>
             <Center><Box>
+
                 <Text fontSize={"lg"}>
-                    the request for the winner will be pending, waiting for balance to get big enough and getting cancelled after 24 hours
+                            go through and will be pending, waiting for the balance to get big enough and getting cancelled after 24 hours. You can either wait
                 </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box> </Box> </Center>
 
             <Center><Box>
                 <Text fontSize={"lg"}>
-                    You can either wait for gas prices to go down or top up with LINK in small increments and seeing if the transaction goes through
+                    for gas price to go down or top up with LINK in small increments and seeing if the transaction goes through.
                 </Text> <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box> </Box> </Center> </> }
             <Center mt={"6vh"} > <Box minWidth={"50%"}>
             <Formik
@@ -108,7 +113,7 @@ export default function FinishLottery() {
                 onSubmit={ async (values) => {
                     await requestWinner({ params: {
                             abi: abi,
-                            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+                            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
                             functionName: "requestRandomWinner",
                             params: {},
 

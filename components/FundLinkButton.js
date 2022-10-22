@@ -61,7 +61,7 @@ export default function FundLinkButton() {
     const {runContractFunction: getSub} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
             functionName: "getSub",
             params: {},
         });
@@ -70,7 +70,7 @@ export default function FundLinkButton() {
     const {runContractFunction: getPrice} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
             functionName: "getLatestPrice",
             params: {},
         });
@@ -101,7 +101,7 @@ export default function FundLinkButton() {
         await tx.wait(1)
         await LinkToVRF({ params: {
                 abi: abi,
-                contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+                contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
                 functionName: "linkToVRF",
                 params: {amount: Moralis.Units.Token(values.fee, 18)},
 
@@ -144,14 +144,14 @@ export default function FundLinkButton() {
             {isSmallerThan721 ?
 
                 <Center><Box>  <Text align={"center"} fontSize={"lg"}>
-                    Make sure to approve both transactions, the initial one, sending LINK to this lottery and the final one that will appear within a minute
+                    Make sure to approve both transactions, the initial one, sending LINK to this raffle and the final one that will appear within a minute
                     of approving the first, sending LINK from this lottery to ChainLINK VRF to get a truly random number.
                 </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box>
                 </Box> </Center>
 
                 : <>
             <Center><Box>  <Text fontSize={"lg"}>
-                    Make sure to approve both transactions, the initial one, sending LINK to this lottery and the final one that will appear within a minute
+                    Make sure to approve both transactions, the initial one, sending LINK to this raffle and the final one that will appear within a minute
             </Text> <Box width={"100%"} height={"2px"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'}> </Box>
                   </Box> </Center>
 
@@ -166,7 +166,7 @@ export default function FundLinkButton() {
                 onSubmit={ async (values) => {
                     await FundLink({ params: {
                             amount: Moralis.Units.Token(values.fee, 18),
-                            receiver: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+                            receiver: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
                             type: "erc20",
                             contractAddress: "0x326C977E6efc84E512bB9C30f76E30c160eD06FB",
 
@@ -174,7 +174,7 @@ export default function FundLinkButton() {
                         await tx.wait(1)
                         await LinkToVRF({ params: {
                                 abi: abi,
-                                contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+                                contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
                                 functionName: "linkToVRF",
                                 params: {amount: Moralis.Units.Token(values.fee, 18)},
 

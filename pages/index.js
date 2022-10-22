@@ -29,9 +29,8 @@ export default function Home() {
   return (
     <div className={"main"}>
       <Head>
-        <title>Lottery@Ethereum</title>
+        <title>10sClub Raffle</title>
         <meta name="description" content="Lottery DApp" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
          <Header />
@@ -41,7 +40,7 @@ export default function Home() {
             <Box position={"relative"} zIndex={ isSmallerThan721 ? "2" : "3"}> <Welcome /> </Box>
 
         </Center>
-          <VStack justifyContent={"space-evenly"} spacing={"7vh"}>
+          <VStack justifyContent={"space-evenly"} spacing={"15vh"}>
             <Box> </Box>
             <EnterLotteryButton />
             <FundLinkButton />

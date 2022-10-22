@@ -54,7 +54,7 @@ export default function Welcome() {
                 :
             <VStack justifyContent={"center"} my={"2vh"} >
             <Text fontSize={"lg"}> This DApp simulates a raffle-type activity where up-to 10 players can send ETH, thereby entering the Club,  </Text>
-            <Text fontSize={"lg"}> into a pool and once any of the players finishes the lottery, sending a bit of LINK as payment in order to get  </Text>
+            <Text fontSize={"lg"}> into a pool and once anyone finishes the lottery, sending a bit of LINK as payment in order to get  </Text>
             <Text fontSize={"lg"}> a truly random number through ChainLink VRF, a winner is chosen and gets sent 50% of the ETH in the pool while </Text>
             <Text fontSize={"lg"}> the rest of the players receive the other 50% split equally between them. As the name and the maximum number of  </Text>
             <Text fontSize={"lg"}> players implies, this DApp is intended to be used purely for small raffles between players who can verify each other </Text>

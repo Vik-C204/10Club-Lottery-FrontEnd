@@ -64,7 +64,7 @@ export default function Info() {
     const {runContractFunction: getPlayers} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
             functionName: "getPlayers",
             params: {},
         });
@@ -72,7 +72,7 @@ export default function Info() {
     const {runContractFunction: getBalance} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
             functionName: "getBalance",
             params: {},
         });
@@ -80,7 +80,7 @@ export default function Info() {
     const {runContractFunction: getRecentWinner} =
         useWeb3Contract({
             abi: abi,
-            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
             functionName: "getRecentWinner",
             params: {},
         });
@@ -108,10 +108,10 @@ export default function Info() {
     }
 
 
-    return (<ScaleFade whileHover={{scale: 1.1}} initialScale={0.001} in={enterCount > 0} >
+    return (<ScaleFade whileHover={{scale: 1.1}} initialScale={0.001} in={enterCount > 0}  >
         <Flex direction={"column"} position={"relative"} zIndex={"1"} ref={ref}
-              bg={"white"} padding={"1vh"} maxW={"100%"}>
-            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"5vh"} > {isSmallerThan721 ?
+              bg={"white"} padding={"1vh"} maxW={"100%"} >
+            <Center mt={isSmallerThan721 ? "5vh" : "9vh"} mb={"5vh"}> {isSmallerThan721 ?
 
                 <VStack>
                     <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Check the  </Heading>

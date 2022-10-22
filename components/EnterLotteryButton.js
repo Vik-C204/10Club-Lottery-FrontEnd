@@ -73,7 +73,7 @@ export default function EnterLotteryButton() {
                  bg={"white"} padding={"1vh"} pb={"4vh"} maxW={"100%"}>
                 <Center mt={isSmallerThan721 ? "8vh" : "10vh"} mb={"5vh"}> <Heading size={"3xl"} bgClip={"text"} bgGradient={'linear(to-r, #7C82FF,teal.400 )'} mb={"3vh"}> Enter the Club  </Heading>  </Center>
              <Center> <Text align={"center"} fontSize={"lg"}>
-                 Enter the lottery by providing a minimum entrance fee of 0.01 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go
+                 Enter the lottery by providing a minimum entrance fee of 0.001 ETH. You can only enter the lottery once so make sure to send all the ETH you want in one go
                   </Text>  </Center>
                 <Box width={"100%"} height={"2px"} bgGradient={"linear(to-r, red.500, yellow.500)"}> </Box>
 
@@ -83,7 +83,7 @@ export default function EnterLotteryButton() {
                 onSubmit={ async (values) => {
                     await EnterLottery({ params: {
                             abi: abi,
-                            contractAddress: "0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01",
+                            contractAddress: "0x5D34E7FFd3865F19Ff33Ee1D630A349671FCc7aF",
                             functionName: "enterLottery",
                             params: {},
                             msgValue: ethers.utils.parseEther(values.fee)
