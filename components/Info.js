@@ -163,7 +163,7 @@ export default function Info() {
                                 size={isSmallerThan721 ? "md" : "lg"}
                             >
                                 {balance}
-                            </Heading>{" "}
+                            </Heading>
                         </VStack>
                     </Center>
                 ) : (
@@ -232,16 +232,16 @@ export default function Info() {
                     </Heading>
                 </Center>
                 <Center>
-                    {" "}
+
                     <svg width="0" height="0">
                         <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
                             <stop stopColor="yellow" offset="0%" />
                             <stop stopColor="red" offset="100%" />
                         </linearGradient>
-                    </svg>{" "}
+                    </svg>
                     <GiPodiumWinner size={"20vh"} style={{ fill: "url(#blue-gradient)" }} />{" "}
                 </Center>
-            </Flex>{" "}
+            </Flex>
         </ScaleFade>
     )
 }
