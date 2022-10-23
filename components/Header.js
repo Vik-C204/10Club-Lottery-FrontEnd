@@ -13,9 +13,14 @@ import {
 import { ConnectButton } from "web3uikit"
 import { FaEthereum } from "react-icons/fa"
 import Welcome from "./Welcome"
+import {useEffect} from "react";
 
 export default function Header() {
     const [isSmallerThan721] = useMediaQuery("(max-width: 721px)")
+
+    useEffect(() => {
+        if(isSmallerThan721) {window.scrollTo(0, 0)}
+    }, [isSmallerThan721]);
 
     return isSmallerThan721 ? (
         <Box bgGradient={"linear(to-r, red.500, yellow.500)"}>
