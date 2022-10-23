@@ -16,9 +16,7 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }) {
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+
   return (
     <MoralisProvider initializeOnMount={false}>
       <ChakraProvider theme={theme}>
