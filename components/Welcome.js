@@ -18,9 +18,7 @@ import { FaGithub } from "react-icons/fa"
 import {useEffect} from "react";
 
 export default function Welcome() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+
     const [isSmallerThan721] = useMediaQuery("(max-width: 721px)")
 
     return (

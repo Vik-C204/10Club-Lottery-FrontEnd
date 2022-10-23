@@ -37,7 +37,7 @@ export default function Home() {
             <Center>
                 <Box position={"relative"} zIndex={isSmallerThan721 ? "2" : "3"}>
                     {" "}
-                    <Welcome />{" "}
+
                 </Box>
             </Center>
             <VStack justifyContent={"space-evenly"} spacing={"15vh"}>
