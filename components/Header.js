@@ -34,7 +34,7 @@ export default function Header() {
                 <VStack> <Heading color={"white"} size={"4xl"}>
                     10Club
                 </Heading>
-                <Heading size={"4xl"} color={"white"}>
+                <Heading fontFamily={"Roboto Slab"} size={"4xl"} color={"white"}>
                     <Text>Lottery </Text>
                 </Heading> </VStack>
                 <Spacer />

@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# 10Club Lottery - Front End
 
-First, run the development server:
+UI of the 10Club Lottery DApp, built to interact with [10Club Lottery Smart Contract](https://goerli.etherscan.io/address/0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01#code), providing quick and intuitive way
+for users to participate in the decentralized lottery. Built for both large and small viewports. 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Tech Stack:
 
-## Learn More
+The main technologies used in this project are:
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/) - Main JS framework of the project.
+- [Chakra UI](https://chakra-ui.com/) - Easily stylised component library.
+- [React-Moralis](https://chakra-ui.com/) - React wrapper around [Moralis](https://moralis.io/) to call functionalities and display data of a blockchain.
+- [Fontsource](https://fontsource.org/) - Self-host Open Source fonts in neatly bundled NPM packages.
+- [Vercel](https://vercel.com/) - Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

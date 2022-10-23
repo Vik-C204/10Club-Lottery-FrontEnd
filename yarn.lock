@@ -1775,6 +1775,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/bree-serif/-/bree-serif-4.5.8.tgz#1dfe51353a6e8c6b5f0342495bc53791dbc92511"
   integrity sha512-FQ6HEs7A5zY3zg8AAUIERjFyYzwY+2sh26qQzUZJb7DgicpLFesu/B7DltGIYH9rmRpb0Je+84rSrI8fh8HU7Q==
 
+"@fontsource/roboto-slab@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto-slab/-/roboto-slab-4.5.9.tgz#4e24dfb20c4ab89c3cb9c43ff736c4bb4e623a85"
+  integrity sha512-NTb8uSQSYqN5duI1EPZSigqrOeWkddQxixR1PhUemIXIIrmn+A3EoWOzcBlO0ZabTvHaoUSQo5bh9JOYMknjzQ==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"

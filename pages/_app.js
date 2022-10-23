@@ -5,11 +5,12 @@ import "@fontsource/bree-serif/400.css";
 import { MoralisProvider } from "react-moralis";
 import { NotificationProvider } from "web3uikit";
 import {useEffect} from "react";
+import "@fontsource/roboto-slab/900.css"
 
 
 const theme = extendTheme({
   fonts: {
-    heading: `'Bree Serif', sans-serif`,
+    heading: `'Bree Serif',  sans-serif`,
     body: `'Bree Serif', sans-serif`,
   },
 });
