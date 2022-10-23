@@ -54,77 +54,6 @@ a {
   fill: white;
 }
 
-
-.fallingLeaves {
-
-  overflow-y: hidden;
-  overflow-x: hidden;
-  text-align: center;
-}
-
-
-
-.fallingLeaves span:nth-child(3n+2) {
-  -webkit-animation-delay: 1.5s;
-  -moz-animation-delay: 1.5s;
-
-}
-
-.fallingLeaves span:nth-child(2n+5) {
-  -webkit-animation-delay: 1.7s;
-  -moz-animation-delay: 1.7s;
-
-}
-
-.fallingLeaves span:nth-child(3n+10) {
-  -webkit-animation-delay: 2.7s;
-  -moz-animation-delay: 2.7s;
-
-}
-
-.fallingLeaves span:nth-child(7n+2) {
-  -webkit-animation-delay: 3.5s;
-  -moz-animation-delay: 3.5s;
-
-}
-
-.fallingLeaves span:nth-child(4n+5) {
-  -webkit-animation-delay: 5.5s;
-  -moz-animation-delay: 5.5s;
-
-}
-
-.fallingLeaves span:nth-child(3n+7) {
-  -webkit-animation-delay: 8s;
-  -moz-animation-delay: 8s;
-
-}
-
-
-
-
-
-
-@-webkit-keyframes fallingLeaves {
-  0%{
-    opacity: 1;
-    transform: translate(0,0px) rotate(0deg);
-  }
-
-  75%{
-    opacity: 1;
-    transform: translate(100px,600px) rotate(270deg);
-
-  }
-
-  100%{
-    opacity: 0;
-    transform: translate(150px,800px) rotate(360deg);
-
-  }
-
-}
-
 @media only screen and (max-width: 721px) {
   .custom-shape-divider-top-1664755733 svg {
     position: relative;
@@ -133,7 +62,7 @@ a {
     width: calc(100% + 1.3px);
     margin-top: 16vh;
     margin-bottom: 0;
-    height: 120px;
+    height: 220px;
     transform: rotateY(180deg);
     transform: rotateX(180deg);
   }
