@@ -21,6 +21,10 @@ export default function Welcome() {
 
     const [isSmallerThan721] = useMediaQuery("(max-width: 721px)")
 
+    useEffect(() => {
+        if(isSmallerThan721) {window.scrollTo(0, 0)}
+    }, [isSmallerThan721]);
+
     return (
         <Center>
             <Box
