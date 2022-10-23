@@ -30,12 +30,12 @@ export default function Header() {
                 pt={"16vh"}
                 mb={"17vh"}
             >
-                <Heading color={"white"} size={"4xl"}>
+                <VStack> <Heading color={"white"} size={"4xl"}>
                     10Club
                 </Heading>
                 <Heading size={"4xl"} color={"white"}>
                     <Text>Lottery </Text>
-                </Heading>
+                </Heading> </VStack>
                 <Spacer />
 
                 <Box
