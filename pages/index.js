@@ -32,7 +32,7 @@ export default function Home() {
                 <meta name="description" content="Lottery DApp on Ethereum" />
             </Head>
 
-            <Header />
+
 
             <Center>
                 <Box position={"relative"} zIndex={isSmallerThan721 ? "2" : "3"}>
