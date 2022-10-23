@@ -4,6 +4,7 @@ import { extendTheme } from "@chakra-ui/react";
 import "@fontsource/bree-serif/400.css";
 import { MoralisProvider } from "react-moralis";
 import { NotificationProvider } from "web3uikit";
+import {useEffect} from "react";
 
 
 const theme = extendTheme({
@@ -14,6 +15,10 @@ const theme = extendTheme({
 });
 
 function MyApp({ Component, pageProps }) {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
   return (
     <MoralisProvider initializeOnMount={false}>
       <ChakraProvider theme={theme}>
