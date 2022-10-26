@@ -49,7 +49,7 @@ export default function Welcome() {
                                             bgClip={"text"}
                                             bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
                                         >
-                                            10Club Lottery
+                                            ChainClique Lottery
                                         </Text>
                                     </Flex>
                                 </VStack>
@@ -62,7 +62,7 @@ export default function Welcome() {
                                             bgClip={"text"}
                                             bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
                                         >
-                                            10Club Lottery
+                                            ChainClique Lottery
                                         </Text>
                                     </Flex>
                                 </HStack>
@@ -78,8 +78,8 @@ export default function Welcome() {
                     {isSmallerThan721 ? (
                         <Text align={"center"} fontSize={"lg"}>
                             This DApp simulates a raffle-type activity where up-to 10 players can
-                            send ETH, thereby entering the Club, into a pool and once anyone(not
-                            just the players) finishes the raffle, sending a bit of LINK as payment
+                            send ETH, thereby entering the lottery, into a pool and once anyone(not
+                            just the players) finishes the lottery, sending a bit of LINK as payment
                             in order to to get a truly random number through ChainLink VRF, a winner
                             is chosen and gets sent 50% of the ETH in the pool while the rest of the
                             players receive the other 50% split equally between them. As the name
@@ -90,7 +90,7 @@ export default function Welcome() {
                         <VStack justifyContent={"center"} my={"2vh"}>
                             <Text fontSize={"lg"}>
                                 This DApp simulates a lottery-type activity where up-to 10 players
-                                can send ETH, thereby entering the Club,
+                                can send ETH, thereby entering the lottery,
                             </Text>
                             <Text fontSize={"lg"}>
                                 into a common pool and once anyone finishes the lottery, sending a
@@ -106,7 +106,7 @@ export default function Welcome() {
                             </Text>
                             <Text fontSize={"lg"}>
                                 players implies, this DApp is intended to be used purely for small
-                                sessions between players who can verify each other.
+                                raffles between players who can verify each other.
                             </Text>
                         </VStack>
                     )}
@@ -118,7 +118,7 @@ export default function Welcome() {
 
                     <Center mt={"1vh"}>
                         <HStack>
-                            <Heading size={"md"}> 10Club Lottery @ </Heading>
+                            <Heading size={"md"}> ChainClique Lottery @ </Heading>
                             <NextLink
                                 href="https://goerli.etherscan.io/address/0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01#code"
                                 passHref

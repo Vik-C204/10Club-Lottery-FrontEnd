@@ -93,10 +93,11 @@ export default function EnterLotteryButton() {
           <Heading
             size={"3xl"}
             bgClip={"text"}
+            pb={"1vh"}
             bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
             mb={"3vh"}
           >
-            Enter the Club
+            Enter the Lottery
           </Heading>
         </Center>
         <Center>
@@ -160,7 +161,7 @@ export default function EnterLotteryButton() {
                     disabled={isSubmitting}
                     type="submit"
                   >
-                    Buy a ticket
+                    Enter
                   </Button>
                 </Form>
               )}

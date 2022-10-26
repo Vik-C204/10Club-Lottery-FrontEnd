@@ -139,7 +139,7 @@ export default function Info() {
                                 bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
                                 mb={"3vh"}
                             >
-                                Club State
+                                Lottery State
                             </Heading>
                         </VStack>
                     ) : (
@@ -147,9 +147,10 @@ export default function Info() {
                             size={"3xl"}
                             bgClip={"text"}
                             bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
+                            pb={"1vh"}
                             mb={"3vh"}
                         >
-                            Check the Club State
+                            Check the Lottery State
                         </Heading>
                     )}
                 </Center>
@@ -182,7 +183,7 @@ export default function Info() {
                 )}
                 <Center>
                     <Heading color={"black"} size={"lg"}>
-                        Current members:
+                        Current players:
                     </Heading>
                 </Center>
                 <Center mt={"2vh"}>

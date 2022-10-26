@@ -32,7 +32,7 @@ export default function Header() {
                 mb={"17vh"}
             >
                 <VStack> <Heading color={"white"} size={"4xl"}>
-                    10Club
+                    ChainClique
                 </Heading>
                 <Heading fontFamily={"Roboto Slab"} size={"4xl"} color={"white"}>
                     <Text>Lottery </Text>
@@ -84,10 +84,10 @@ export default function Header() {
                 pt={"2vh"}
                 mb={"5vh"}
             >
-                <Heading ml={"10vh"} color={"white"} size={"4xl"}>
-                    10Club
+                <Heading ml={"10vh"} color={"white"} size={"3xl"}>
+                    ChainClique
                 </Heading>
-                <Heading size={"4xl"} color={"white"} ml={"2vh"}>
+                <Heading size={"3xl"} color={"white"} ml={"2vh"}>
                     <Text>Lottery </Text>
                 </Heading>
                 <Spacer />
