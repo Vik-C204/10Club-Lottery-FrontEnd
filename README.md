@@ -1,7 +1,7 @@
 
 # ChainClique Lottery - Front End
 
-UI of the ChainClique Lottery DApp, built to interact with [ChainClique Lottery Smart Contract](https://github.com/Vik-C204/ChainClique-Lottery-BackEnd-Smart-Contract), providing quick and intuitive way
+UI of the [ChainClique Lottery DApp](https://www.chaincliquelottery.online), built to interact with [ChainClique Lottery Smart Contract](https://github.com/Vik-C204/ChainClique-Lottery-BackEnd-Smart-Contract), providing quick and intuitive way
 for users to participate in the decentralized lottery. Built for both large and small viewports. 
 
 
