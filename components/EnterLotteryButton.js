@@ -90,7 +90,29 @@ export default function EnterLotteryButton() {
         maxW={"100%"}
       >
         <Center mt={isSmallerThan721 ? "8vh" : "10vh"} mb={"5vh"}>
-          <Heading
+          {isSmallerThan721 ? <VStack>
+            <Heading
+                size={"3xl"}
+                bgClip={"text"}
+                pb={"1vh"}
+                bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
+                mb={"1vh"}
+            >
+              Enter
+            </Heading>
+
+            <Heading
+                size={"3xl"}
+                bgClip={"text"}
+                pb={"1vh"}
+                bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
+                mb={"3vh"}
+            >
+              the Lottery
+            </Heading>
+
+
+          </VStack> : <Heading
             size={"3xl"}
             bgClip={"text"}
             pb={"1vh"}
@@ -98,7 +120,7 @@ export default function EnterLotteryButton() {
             mb={"3vh"}
           >
             Enter the Lottery
-          </Heading>
+          </Heading> }
         </Center>
         <Center>
           <Text align={"center"} fontSize={"lg"}>

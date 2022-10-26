@@ -1,7 +1,7 @@
 
-# 10Club Lottery - Front End
+# ChainClique Lottery - Front End
 
-UI of the 10Club Lottery DApp, built to interact with [10Club Lottery Smart Contract](https://goerli.etherscan.io/address/0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01#code), providing quick and intuitive way
+UI of the ChainClique Lottery DApp, built to interact with [ChainClique Lottery Smart Contract](https://github.com/Vik-C204/ChainClique-Lottery-BackEnd-Smart-Contract), providing quick and intuitive way
 for users to participate in the decentralized lottery. Built for both large and small viewports. 
 
 

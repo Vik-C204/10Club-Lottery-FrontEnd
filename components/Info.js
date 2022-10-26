@@ -137,6 +137,7 @@ export default function Info() {
                                 size={"3xl"}
                                 bgClip={"text"}
                                 bgGradient={"linear(to-r, #7C82FF,teal.400 )"}
+                                pb={"1vh"}
                                 mb={"3vh"}
                             >
                                 Lottery State
