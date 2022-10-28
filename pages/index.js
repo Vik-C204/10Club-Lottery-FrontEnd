@@ -28,7 +28,7 @@ export default function Home() {
     return (
         <div className={"main"}>
             <Head>
-                <title>10Club Lottery </title>
+                <title>ChainClique Lottery </title>
                 <meta name="description" content="Lottery DApp on Ethereum" />
             </Head>
 
